@@ -1,0 +1,115 @@
+:host {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100dvh;
+  background: url("/assets/kitchenbg.png") no-repeat top center;
+}
+
+.main__form {
+  width: 95dvw;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  padding: 2rem 1rem;
+  border-radius: 1rem;
+  background-color: var(--white);
+
+  .main__section--infoTexts {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+
+    .section__h1--title {
+      color: var(--primary);
+      font-size: 2.3rem;
+    }
+
+    span {
+      font-size: 1.1rem;
+      text-align: center;
+      color: rgb(146, 146, 146);
+    }
+  }
+
+  .main__form--login {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.6rem;
+    border-radius: 1rem;
+
+    .form__div--inputContainer {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      position: relative;
+
+      .div__label {
+        font-size: 0.9rem;
+        font-weight: 500;
+        color: var(--text);
+        position: absolute;
+        top: -10px;
+        left: 10px;
+        padding: 0 5px;
+        background-color: var(--white);
+      }
+
+      .div__input {
+        all: unset;
+        display: flex;
+        align-items: center;
+        height: 2.5rem;
+        gap: 0.5rem;
+        font-size: 1.2rem;
+        padding: 0.5rem 1rem;
+        border-radius: 0.2rem;
+        border: 1px solid #ccc;
+
+        .password {
+          all: unset;
+          width: 100%;
+        }
+
+        .material-icons {
+          color: var(--text);
+          font-size: 1.8rem;
+        }
+      }
+    }
+
+    .form__button {
+      all: unset;
+      width: 80%;
+      height: 2.7rem;
+      align-self: center;
+      text-align: center;
+      font-size: 1.2rem;
+      background-color: var(--primary);
+      color: var(--white);
+      border-radius: 0.5rem;
+    }
+  }
+
+  .main__section--links {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+
+    .section__span--noAccount,
+    .section__span--forgotPassword {
+      font-size: 1.2rem;
+      text-align: center;
+
+      .span__a--link {
+        all: unset;
+        color: var(--primary);
+        font-weight: 600;
+      }
+    }
+  }
+}
