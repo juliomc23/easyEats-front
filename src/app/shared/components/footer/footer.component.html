@@ -1,0 +1,44 @@
+<footer class="footer">
+  <nav class="footer__nav">
+    <a
+      class="nav__item"
+      [routerLink]="'/' + routes.FRIDGE"
+      routerLinkActive="active"
+    >
+      <span class="material-icons">kitchen</span>
+      {{ routes.FRIDGE }}
+    </a>
+    <a
+      class="nav__item"
+      [routerLink]="'/' + routes.RECIPES"
+      routerLinkActive="active"
+    >
+      <span class="material-icons-outlined">book</span>
+      {{ routes.RECIPES }}
+    </a>
+    <a
+      class="nav__item"
+      [routerLink]="'/' + routes.HOME"
+      routerLinkActive="active"
+    >
+      <span class="material-icons-outlined">home</span>
+      {{ routes.HOME }}
+    </a>
+    <a
+      class="nav__item"
+      [routerLink]="'/' + routes.RECIPES_GENERATOR"
+      routerLinkActive="active"
+    >
+      <span class="material-icons">shuffle</span>
+      {{ routes.RECIPES_GENERATOR }}
+    </a>
+    <a
+      class="nav__item"
+      [routerLink]="'/' + routes.SETTINGS"
+      routerLinkActive="active"
+    >
+      <span class="material-icons-outlined">settings</span>
+      {{ routes.SETTINGS }}
+    </a>
+  </nav>
+</footer>
