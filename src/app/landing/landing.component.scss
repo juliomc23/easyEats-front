@@ -1,0 +1,186 @@
+.landing__main--container {
+  display: flex;
+  flex-direction: column;
+  background: url("/assets/kitchenbg.png") no-repeat top center;
+  background-size: cover;
+  gap: 1rem;
+  padding-top: 2rem;
+
+  .main__section--appInfo {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    margin: 1rem;
+    background-color: var(--white);
+
+    .section__h1--title {
+      color: var(--primary);
+      font-size: 2.3rem;
+    }
+
+    .section__h2--subtitle {
+      font-size: 1.3rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .section__a--generateMeals {
+      all: unset;
+      height: 2.5rem;
+      padding: 0 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      border-radius: 0.5rem;
+      font-size: 1.1rem;
+      font-weight: 500;
+      margin-top: 1rem;
+      background-color: var(--text);
+      color: var(--white);
+
+      .material-icons-outlined {
+        font-size: 2rem;
+        color: var(--primary);
+      }
+    }
+  }
+
+  .main__section--infoTexts {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    background-color: var(--text);
+    padding: 2rem;
+    color: var(--white);
+
+    .section__article--mainInfo {
+      display: flex;
+      align-items: center;
+      text-align: center;
+      flex-direction: column;
+      gap: 0.5rem;
+      font-size: 1.3rem;
+
+      .article__h3--keyFeatures {
+        font-size: 1rem;
+      }
+
+      .article__h2--keyFeatures {
+        color: var(--primary);
+      }
+
+      .article__span--keyFeatures {
+        font-size: 1rem;
+      }
+    }
+  }
+
+  .main__section--reviews {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+    gap: 1rem;
+
+    h2 {
+      text-align: center;
+      font-size: 2rem;
+      color: var(--primary);
+      background-color: var(--white);
+      padding: 1rem;
+      border-radius: 0.5rem;
+    }
+
+    .section__div--reviews {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+  }
+
+  .main__section--cta {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    background-color: var(--text);
+    padding: 2rem;
+    color: var(--white);
+
+    .section__h2--cta {
+      text-align: center;
+      color: var(--secondary);
+    }
+
+    .section__div--links {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+
+      .div__a--generateMealsLink,
+      .div__a--contactLink {
+        all: unset;
+        height: 2.5rem;
+        padding: 0 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        border-radius: 0.5rem;
+        font-size: 1.1rem;
+        font-weight: 500;
+      }
+
+      .div__a--generateMealsLink {
+        background-color: #6d6d6d;
+        color: var(--white);
+      }
+
+      .div__a--contactLink {
+        background-color: var(--white);
+        color: var(--text);
+      }
+    }
+  }
+}
+
+.section__article--secondaryInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+
+  .article__h2--infoTitle {
+    color: var(--details);
+    font-size: 1.2rem;
+  }
+}
+
+.div__article--review {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  background-color: var(--white);
+
+  .article__div--profile {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+
+    .div__img--avatar {
+      width: 4rem;
+      border-radius: 99rem;
+    }
+
+    .div__span--profileName {
+      font-size: 1.1rem;
+      font-weight: 500;
+    }
+  }
+
+  .article__span--review {
+    font-size: 1.1rem;
+    font-weight: 700;
+  }
+}
