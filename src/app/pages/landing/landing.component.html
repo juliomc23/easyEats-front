@@ -8,7 +8,9 @@
       Descubre nuevas recetas y ahorra tiempo con nuestro generador inteligente
       de comidas.
     </span>
-    <a class="section__a--generateMeals" routerLink="/acceso"
+    <a
+      class="section__a--generateMeals"
+      [routerLink]="'/' + customRoutes.SIGN_IN"
       >Inicia sesión aquí
       <span class="material-icons-outlined"> rocket_launch </span></a
     >
@@ -107,8 +109,14 @@
       comidas sin complicaciones.</span
     >
     <div class="section__div--links">
-      <a class="div__a--generateMealsLink">Genera tus comidas</a>
-      <a class="div__a--contactLink">Contáctanos</a>
+      <a
+        class="div__a--generateMealsLink"
+        [routerLink]="'/' + customRoutes.RECIPES_GENERATOR"
+        >Genera tus comidas</a
+      >
+      <a class="div__a--contactLink" [routerLink]="'/' + customRoutes.CONTACT"
+        >Contáctanos</a
+      >
     </div>
   </section>
 </main>
