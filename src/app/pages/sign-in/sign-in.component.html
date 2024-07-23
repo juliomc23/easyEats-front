@@ -11,8 +11,17 @@
     <div class="form__div--inputContainer">
       <label for="password" class="div__label">Contraseña</label>
       <div class="div__input">
-        <input id="password" type="password" class="password" />
-        <span class="material-icons">visibility</span>
+        <input
+          id="password"
+          [type]="isPasswordInText ? 'text' : 'password'"
+          class="password"
+        />
+        <span
+          class="material-icons"
+          (click)="handleChangePasswordToText()"
+          onKeyPress
+          >{{ isPasswordInText ? "visibility" : "visibility_off" }}</span
+        >
       </div>
     </div>
     <button class="form__button" type="submit">Iniciar sesión</button>
