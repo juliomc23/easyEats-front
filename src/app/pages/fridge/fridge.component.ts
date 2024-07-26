@@ -1,12 +1,11 @@
 import { Component } from '@angular/core';
+import { LayoutComponent } from '../../shared/components/layout/layout.component';
 
 @Component({
   selector: 'app-fridge',
   standalone: true,
-  imports: [],
+  imports: [LayoutComponent],
   templateUrl: './fridge.component.html',
-  styleUrl: './fridge.component.scss'
+  styleUrl: './fridge.component.scss',
 })
-export class FridgeComponent {
-
-}
+export class FridgeComponent {}
