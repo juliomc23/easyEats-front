@@ -1,4 +1,19 @@
-<div>
-  <span>{{ ingredient.name }}</span>
-  <span>{{ ingredient.qty }}</span>
-</div>
+<section class="article__ingredient--card">
+  <article class="ingredient__article--info">
+    <span class="ingredient__span--name">{{ ingredient.name }}</span>
+    <div class="ingredient__div--qty">
+      <span class="ingredient__span--qty"
+        >Cantidad: {{ ingredient.qty.value }}</span
+      >
+      <span class="ingredient__span--qty">{{ ingredient.qty.unit }}</span>
+    </div>
+  </article>
+  <article class="ingredient__article--actions">
+    <button class="actions__button edit">
+      <span class="material-icons-outlined">edit</span>
+    </button>
+    <button class="actions__button delete">
+      <span class="material-icons-outlined">delete</span>
+    </button>
+  </article>
+</section>

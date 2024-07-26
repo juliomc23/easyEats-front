@@ -1,0 +1,49 @@
+.article__ingredient--card {
+  display: flex;
+  justify-content: space-between;
+  background-color: var(--white);
+  padding: 2rem;
+  border-radius: 0.2rem;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.178);
+
+  .ingredient__article--info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+
+    .ingredient__span--name {
+      font-size: 1.2rem;
+      font-weight: 700;
+    }
+
+    .ingredient__div--qty {
+      display: flex;
+      gap: 0.1rem;
+
+      .ingredient__span--qty {
+        font-size: 0.9rem;
+        color: var(--text);
+      }
+    }
+  }
+
+  .ingredient__article--actions {
+    display: flex;
+    gap: 0.5rem;
+
+    .actions__button {
+      all: unset;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .edit {
+      color: var(--secondary);
+    }
+
+    .delete {
+      color: var(--danger);
+    }
+  }
+}
