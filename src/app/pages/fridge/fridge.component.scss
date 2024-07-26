@@ -1,0 +1,83 @@
+.fridge__main--container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1rem 0;
+
+  .main__section--searchBar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.3rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #ccc;
+
+    .section__input--search {
+      all: unset;
+      font-size: 1.2rem;
+    }
+
+    .material-icons-outlined {
+      font-size: 2rem;
+    }
+  }
+
+  .main__section--addIngredient {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    padding: 0.3rem 1rem;
+
+    .section__button--showAddIngredientSection {
+      all: unset;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      font-size: 1.3rem;
+      font-weight: 700;
+    }
+
+    .section__div--addIngredient {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-evenly;
+
+      .div__article--addIngredientName,
+      .div__article--addIngredientQTY {
+        position: relative;
+
+        label {
+          position: absolute;
+          top: -10px;
+          left: 10px;
+          padding: 0 5px;
+          background-color: var(--white);
+        }
+        input {
+          all: unset;
+          height: 2rem;
+          padding: 0.3rem 0.5rem;
+          border-radius: 0.3rem;
+          border: 1px solid #ccc;
+        }
+
+        .section__input--addIngredientQTY {
+          width: 5rem;
+        }
+      }
+    }
+
+    .section__button--addIngredient {
+      all: unset;
+      align-self: center;
+      height: 2.5rem;
+      width: 10rem;
+      padding: 0 1rem;
+      background-color: var(--primary);
+      border-radius: 0.5rem;
+      color: var(--white);
+    }
+  }
+}

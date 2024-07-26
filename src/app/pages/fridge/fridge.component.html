@@ -1,3 +1,43 @@
 <app-layout>
-  <h1>Fridge</h1>
+  <main class="fridge__main--container">
+    <section class="main__section--searchBar">
+      <span class="material-icons-outlined"> search </span>
+      <input
+        placeholder="Busca tus ingredientes"
+        class="section__input--search"
+      />
+    </section>
+    <section class="main__section--addIngredient">
+      <button
+        class="section__button--showAddIngredientSection"
+        (click)="handleShowAddIngredientsSection()"
+      >
+        Añadir nuevo ingrediente
+        <span class="material-icons-outlined">{{
+          showAddIngredientSection ? "keyboard_arrow_up" : "keyboard_arrow_down"
+        }}</span>
+      </button>
+      @if (showAddIngredientSection) {
+      <div class="section__div--addIngredient">
+        <article class="div__article--addIngredientName">
+          <label for="ingredient_name">Nombre</label>
+          <input id="ingredient_name" />
+        </article>
+        <article class="div__article--addIngredientQTY">
+          <label for="ingredient_quantity">Cant.</label>
+          <input
+            id="ingredient_quantity"
+            class="section__input--addIngredientQTY"
+          />
+        </article>
+      </div>
+      <button class="section__button--addIngredient">Añadir ingrediente</button>
+      }
+    </section>
+    <section>
+      @for (ingredient of ingredientsInFridge; track ingredient.id) {
+      <app-ingredient [ingredient]="ingredient" />
+      }
+    </section>
+  </main>
 </app-layout>
