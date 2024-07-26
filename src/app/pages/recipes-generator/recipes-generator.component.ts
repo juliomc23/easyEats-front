@@ -1,12 +1,11 @@
 import { Component } from '@angular/core';
+import { LayoutComponent } from '../../shared/components/layout/layout.component';
 
 @Component({
   selector: 'app-recipes-generator',
   standalone: true,
-  imports: [],
+  imports: [LayoutComponent],
   templateUrl: './recipes-generator.component.html',
-  styleUrl: './recipes-generator.component.scss'
+  styleUrl: './recipes-generator.component.scss',
 })
-export class RecipesGeneratorComponent {
-
-}
+export class RecipesGeneratorComponent {}

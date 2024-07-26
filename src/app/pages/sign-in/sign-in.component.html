@@ -1,37 +1,49 @@
 <main class="main__form">
   <section class="main__section--infoTexts">
-    <h1 class="section__h1--title">Bienvenido</h1>
+    <h1 class="section__h1--title">Easy Eats</h1>
     <span>Introduce tus credenciales para acceder</span>
   </section>
-  <form class="main__form--login" autocomplete="off">
+  <form
+    [formGroup]="signInFormControl"
+    (ngSubmit)="handleSignIn()"
+    class="main__form--login"
+    autocomplete="off"
+  >
     <div class="form__div--inputContainer">
       <label for="email" class="div__label">Correo electrónico</label>
       <input
         id="email"
         type="email"
-        placeholder="e@correo.com"
+        formControlName="email"
         class="div__input"
       />
     </div>
     <div class="form__div--inputContainer">
       <label for="password" class="div__label">Contraseña</label>
       <div class="div__input">
-        <input id="password" type="password" class="password" />
-        <span class="material-icons">visibility</span>
+        <input
+          id="password"
+          [type]="isPasswordInText ? 'text' : 'password'"
+          formControlName="password"
+          class="password"
+        />
+        <span
+          class="material-icons"
+          (click)="handleChangePasswordToText()"
+          onKeyPress
+          >{{ isPasswordInText ? "visibility" : "visibility_off" }}</span
+        >
       </div>
     </div>
+    @if(signInError){
+    <span class="form__span--error">{{ signInError }}</span>
+    }
     <button class="form__button" type="submit">Iniciar sesión</button>
   </form>
   <section class="main__section--links">
-    <span class="section__span--noAccount"
-      >¿No tienes cuenta?
-      <a routerLink="/register" class="span__a--link">Regístrate</a></span
-    >
-    <span class="section__span--forgotPassword"
-      >¿Olvidaste tu contraseña?
-      <a routerLink="/forgot-password" class="span__a--link"
-        >Recuperala</a
-      ></span
+    <a routerLink="/register" class="span__a--link">Crear una cuenta</a>
+    <a routerLink="/forgot-password" class="span__a--link"
+      >Recuperar contraseña</a
     >
   </section>
 </main>
