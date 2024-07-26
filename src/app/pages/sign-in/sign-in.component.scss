@@ -82,6 +82,11 @@
       }
     }
 
+    .form__span--error {
+      align-self: center;
+      color: red;
+    }
+
     .form__button {
       all: unset;
       width: 80%;
@@ -97,19 +102,13 @@
 
   .main__section--links {
     display: flex;
+    align-items: flex-end;
     flex-direction: column;
     gap: 0.5rem;
 
-    .section__span--noAccount,
-    .section__span--forgotPassword {
-      font-size: 1.2rem;
-      text-align: center;
-
-      .span__a--link {
-        all: unset;
-        color: var(--primary);
-        font-weight: 600;
-      }
+    .span__a--link {
+      color: var(--primary);
+      text-decoration: underline;
     }
   }
 }
