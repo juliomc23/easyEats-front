@@ -1,10 +1,5 @@
 import { Component, Input } from '@angular/core';
-
-interface Ingredient {
-  id: number;
-  name: string;
-  qty: number;
-}
+import { Ingredient } from '../../interfaces/ingredient.interface';
 
 @Component({
   selector: 'app-ingredient',
