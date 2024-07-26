@@ -34,7 +34,7 @@
       <button class="section__button--addIngredient">Añadir ingrediente</button>
       }
     </section>
-    <section>
+    <section class="main__section--ingredientsList">
       @for (ingredient of ingredientsInFridge; track ingredient.id) {
       <app-ingredient [ingredient]="ingredient" />
       }
