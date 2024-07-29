@@ -1,3 +1,56 @@
+@if (isEditingFood) {
+<section class="article__edit-ingredient--card">
+  <form
+    class="edit-ingredient__article--info"
+    [formGroup]="ingrientFormGroup"
+    (submit)="saveEditedFood(ingredient)"
+  >
+    <div class="ingredient__div--name">
+      <label for="ingredient_name" class="ingredient__label--name"
+        >Ingrediente</label
+      >
+      <input
+        formControlName="name"
+        type="text"
+        id="ingredient_name"
+        class="ingredient__input--name"
+      />
+    </div>
+    <div class="ingredient__div--qty" formGroupName="qty">
+      <label for="ingredient_qty" class="ingredient__label--qty"
+        >Cantidad</label
+      >
+      <input
+        type="number"
+        id="ingredient_qty"
+        class="ingredient__input--qty"
+        formControlName="value"
+      />
+      <select formControlName="unit" class="ingredient__select--qty">
+        <option value="gr">gr</option>
+        <option value="ud">ud</option>
+      </select>
+    </div>
+  </form>
+  <article class="edit-ingredient__article--actions">
+    <button
+      type="submit"
+      class="actions__button edit"
+      (click)="saveEditedFood(ingredient)"
+    >
+      Guardar
+      <span class="material-icons-outlined">save</span>
+    </button>
+    <button
+      class="actions__button cancel"
+      (click)="cancelEditingFood(ingredient.id)"
+    >
+      Cancelar
+      <span class="material-icons-outlined">cancel</span>
+    </button>
+  </article>
+</section>
+} @else {
 <section class="article__ingredient--card">
   <article class="ingredient__article--info">
     <span class="ingredient__span--name">{{ ingredient.name }}</span>
@@ -9,7 +62,7 @@
     </div>
   </article>
   <article class="ingredient__article--actions">
-    <button class="actions__button edit">
+    <button class="actions__button edit" (click)="editFood()">
       <span class="material-icons-outlined">edit</span>
     </button>
     <button class="actions__button delete">
@@ -17,3 +70,4 @@
     </button>
   </article>
 </section>
+}
