@@ -35,7 +35,7 @@
       }
     </section>
     <section class="main__section--ingredientsList">
-      @for (ingredient of ingredientsInFridge; track ingredient.id) {
+      @for (ingredient of fridgeIngredients$(); track ingredient.id) {
       <app-ingredient [ingredient]="ingredient" />
       }
     </section>
