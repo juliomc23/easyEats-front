@@ -1,10 +1,10 @@
 export interface Ingredient {
   id: number;
   name: string;
-  qty: Quantity;
+  value: number;
+  unit: Unit;
 }
 
-interface Quantity {
-  value: number;
-  unit: 'gr' | 'ud';
-}
+export type Unit = 'g' | 'ud' | 'l';
+
+export type NewIngredient = Omit<Ingredient, 'id'>;
