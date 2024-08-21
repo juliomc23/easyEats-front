@@ -1,8 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { catchError, firstValueFrom } from 'rxjs';
-import { SuccessfullySignInResponse } from '../interfaces/sign-in.interface';
-import { CustomError } from '../../../shared/types/customError.class';
+import { SuccessfullyAuthResponse } from '../interfaces/sign-in.interface';
+import { environment } from '@envs/environment.development';
 
 @Injectable({
   providedIn: 'root',
@@ -13,14 +13,19 @@ export class SignInService {
   public signIn(email: string, password: string) {
     return firstValueFrom(
       this.httpClient
-        .post<SuccessfullySignInResponse>('https://reqres.in/api/login', {
-          email,
-          password,
-        })
+        .post<SuccessfullyAuthResponse>(
+          `${environment.API_BASE_URL}/auth/signin`,
+          {
+            email,
+            password,
+          },
+          {
+            withCredentials: true,
+          }
+        )
         .pipe(
           catchError((error) => {
-            const customError = new CustomError(error.error.error);
-            throw customError;
+            throw new Error(error.error.message);
           })
         )
     );

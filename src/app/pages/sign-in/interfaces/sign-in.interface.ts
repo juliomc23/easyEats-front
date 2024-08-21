@@ -1,3 +1,3 @@
-export interface SuccessfullySignInResponse {
-  token: string;
+export interface SuccessfullyAuthResponse {
+  accessToken: string;
 }

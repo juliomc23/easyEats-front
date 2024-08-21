@@ -1,9 +1,9 @@
 import { Component, inject } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
-import { SignInService } from './services/sign-in.service';
-import { CustomError } from '../../shared/types/customError.class';
 import { Router } from '@angular/router';
 import { CustomRoutes } from '../../shared/types/routes.enum';
+import { SignInService } from './services/sign-in.service';
+import { AccessTokenService } from 'app/shared/signals/access-token.service';
 
 @Component({
   selector: 'app-sign-in',
@@ -14,6 +14,7 @@ import { CustomRoutes } from '../../shared/types/routes.enum';
 })
 export class SignInComponent {
   private signInService = inject(SignInService);
+  private accessTokenService = inject(AccessTokenService);
   private router: Router = inject(Router);
 
   isPasswordInText: boolean = false;
@@ -34,12 +35,13 @@ export class SignInComponent {
     if (email && password) {
       try {
         const response = await this.signInService.signIn(email, password);
-        if (response.token) {
+        if (response.accessToken) {
+          this.accessTokenService.setAccessToken(response.accessToken);
           this.router.navigate([CustomRoutes.HOME]);
         }
       } catch (error) {
-        if (error instanceof CustomError) {
-          this.signInError = error.error;
+        if (error instanceof Error) {
+          this.signInError = error.message;
         }
       }
     }
