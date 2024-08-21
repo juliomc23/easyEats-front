@@ -1,0 +1,39 @@
+<form
+  class="section__form--addIngredient"
+  [formGroup]="addIngredientFormGroup"
+  (submit)="handleAddNewIngredient()"
+  autocomplete="off"
+>
+  <section class="form__section--addIngredient">
+    <article class="div__article--addIngredientName">
+      <label for="ingredient_name">Nombre</label>
+      <input id="ingredient_name" formControlName="name" />
+    </article>
+    <article class="div__article--addIngredientQTY">
+      <div class="article__div--qtyIngredient">
+        <label for="ingredient_quantity">Cant.</label>
+        <input
+          id="ingredient_quantity"
+          type="number"
+          formControlName="value"
+          class="section__input--addIngredientQTY"
+        />
+      </div>
+      <div class="article__div--unitIngredient">
+        <label for="ingredient_unit">Ud.</label>
+        <select id="ingredient_unit" formControlName="unit">
+          <option value="g">g</option>
+          <option value="ud">ud</option>
+          <option value="l">l</option>
+        </select>
+      </div>
+    </article>
+  </section>
+  <button
+    type="submit"
+    [disabled]="addIngredientFormGroup.invalid"
+    class="section__button--addIngredient"
+  >
+    Añadir ingrediente
+  </button>
+</form>

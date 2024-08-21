@@ -1,0 +1,111 @@
+.section__form--addIngredient {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+
+  .form__section--addIngredient {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+
+    .div__article--addIngredientName {
+      position: relative;
+      label {
+        position: absolute;
+        top: -10px;
+        left: 10px;
+        padding: 0 5px;
+        background-color: var(--white);
+      }
+      input {
+        all: unset;
+        height: 2rem;
+        padding: 0.3rem 0.5rem;
+        border-radius: 0.3rem;
+        border: 1px solid #ccc;
+      }
+      .small__error {
+        color: var(--danger);
+      }
+    }
+
+    .div__article--addIngredientQTY {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+
+      .article__div--qtyIngredient,
+      .article__div--unitIngredient {
+        position: relative;
+
+        label {
+          position: absolute;
+          top: -10px;
+          left: 10px;
+          padding: 0 5px;
+          background-color: var(--white);
+        }
+        input {
+          all: unset;
+          width: 5rem;
+          height: 2rem;
+          padding: 0.3rem 0.5rem;
+          border-radius: 0.3rem;
+          border: 1px solid #ccc;
+        }
+        .small__error {
+          width: max-content;
+          color: var(--danger);
+        }
+      }
+
+      .article__div--unitIngredient {
+        select {
+          all: unset;
+          display: flex;
+          align-items: center;
+          width: 5rem;
+          height: 2rem;
+          padding: 0.3rem 0.5rem;
+          border-radius: 0.3rem;
+          border: 1px solid #ccc;
+        }
+      }
+
+      .section__input--addIngredientQTY {
+        width: 5rem;
+      }
+    }
+  }
+
+  .message {
+    font-weight: 700;
+  }
+
+  .addedIngredientMessage {
+    color: var(--success);
+  }
+
+  .addedIngredientErrorMessage {
+    color: var(--danger);
+  }
+
+  .section__button--addIngredient {
+    all: unset;
+    align-self: center;
+    height: 2.5rem;
+    width: 10rem;
+    padding: 0 1rem;
+    background-color: var(--primary);
+    border-radius: 0.5rem;
+    color: var(--white);
+
+    &:disabled {
+      opacity: 0.5;
+    }
+  }
+}

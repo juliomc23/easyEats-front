@@ -16,7 +16,7 @@
         class="ingredient__input--name"
       />
     </div>
-    <div class="ingredient__div--qty" formGroupName="qty">
+    <div class="ingredient__div--qty">
       <label for="ingredient_qty" class="ingredient__label--qty"
         >Cantidad</label
       >
@@ -27,8 +27,9 @@
         formControlName="value"
       />
       <select formControlName="unit" class="ingredient__select--qty">
-        <option value="gr">gr</option>
+        <option value="gr">g</option>
         <option value="ud">ud</option>
+        <option value="l">l</option>
       </select>
     </div>
   </form>
@@ -56,9 +57,9 @@
     <span class="ingredient__span--name">{{ ingredient.name }}</span>
     <div class="ingredient__div--qty">
       <span class="ingredient__span--qty"
-        >Cantidad: {{ ingredient.qty.value }}</span
+        >Cantidad: {{ ingredient.value }}</span
       >
-      <span class="ingredient__span--qty">{{ ingredient.qty.unit }}</span>
+      <span class="ingredient__span--qty">{{ ingredient.unit }}</span>
     </div>
   </article>
   <article class="ingredient__article--actions">

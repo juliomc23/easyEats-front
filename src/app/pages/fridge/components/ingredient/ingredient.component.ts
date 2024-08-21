@@ -19,20 +19,16 @@ export class IngredientComponent {
 
   ingrientFormGroup = new FormGroup({
     name: new FormControl(),
-    qty: new FormGroup({
-      value: new FormControl(),
-      unit: new FormControl(),
-    }),
+    value: new FormControl(),
+    unit: new FormControl(),
   });
 
   editFood() {
     this.isEditingFood = true;
     this.ingrientFormGroup.patchValue({
       name: this.ingredient.name,
-      qty: {
-        value: this.ingredient.qty.value,
-        unit: this.ingredient.qty.unit,
-      },
+      value: this.ingredient.value,
+      unit: this.ingredient.unit,
     });
   }
 
@@ -43,13 +39,14 @@ export class IngredientComponent {
   saveEditedFood(ingredient: Ingredient) {
     this.isEditingFood = false;
 
-    const { name, qty } = this.ingrientFormGroup.value;
+    const { name, value, unit } = this.ingrientFormGroup.value;
 
-    if (!name || !qty) return;
+    if (!name || !value || !unit) return;
 
     this.fridgeService.modifyIngredient(ingredient.id, {
       name,
-      qty: { value: qty.value, unit: qty.unit },
+      value,
+      unit,
     });
   }
 }
