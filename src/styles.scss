@@ -1,5 +1,5 @@
+@import "ngx-toastr/toastr";
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
-
 :root {
   --white: #ffffff;
   --primary: #4a90e2;
@@ -7,6 +7,7 @@
   --details: #ff9f43;
   --text: #333333;
   --danger: #eb4242;
+  --success: #4caf50;
 }
 
 * {
