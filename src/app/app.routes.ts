@@ -1,5 +1,6 @@
 import { Routes } from '@angular/router';
 import { CustomRoutes } from './shared/types/routes.enum';
+import { tokenGuard } from './shared/guards/token.guard';
 
 export const routes: Routes = [
   {
@@ -18,6 +19,7 @@ export const routes: Routes = [
     path: CustomRoutes.HOME,
     loadComponent: () =>
       import('./pages/home/home.component').then((c) => c.HomeComponent),
+    canActivate: [tokenGuard],
   },
   {
     path: CustomRoutes.SIGN_IN,
@@ -37,6 +39,7 @@ export const routes: Routes = [
     path: CustomRoutes.FRIDGE,
     loadComponent: () =>
       import('./pages/fridge/fridge.component').then((c) => c.FridgeComponent),
+    canActivate: [tokenGuard],
   },
   {
     path: CustomRoutes.SETTINGS,
