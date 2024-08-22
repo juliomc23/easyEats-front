@@ -2,6 +2,8 @@ import { Component, inject, Input } from '@angular/core';
 import { Ingredient } from '../../interfaces/ingredient.interface';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { FridgeService } from '../../services/fridge.service';
+import { ToastrService } from 'ngx-toastr';
+import { FridgeIngredientsService } from '@pages/fridge/signals/fridge-ingredients.service';
 
 @Component({
   selector: 'app-ingredient',
@@ -14,6 +16,8 @@ export class IngredientComponent {
   @Input({ required: true }) ingredient!: Ingredient;
 
   private fridgeService: FridgeService = inject(FridgeService);
+  private fridgeIngredientService = inject(FridgeIngredientsService);
+  private toastrService = inject(ToastrService);
 
   isEditingFood: boolean = false;
 
@@ -37,16 +41,29 @@ export class IngredientComponent {
   }
 
   saveEditedFood(ingredient: Ingredient) {
-    this.isEditingFood = false;
-
     const { name, value, unit } = this.ingrientFormGroup.value;
 
     if (!name || !value || !unit) return;
 
-    this.fridgeService.modifyIngredient(ingredient.id, {
-      name,
-      value,
-      unit,
-    });
+    this.fridgeService
+      .modifyIngredient(ingredient.id, {
+        name,
+        value,
+        unit,
+      })
+      .subscribe({
+        next: ({ status, body }) => {
+          if (status === 200) {
+            this.toastrService.success('¡Ingrediente modificado con exito!');
+            this.isEditingFood = false;
+            this.fridgeIngredientService.modifyFridgeIngredient(
+              body as Ingredient
+            );
+          }
+        },
+        error: (err) => {
+          console.log(err);
+        },
+      });
   }
 }
