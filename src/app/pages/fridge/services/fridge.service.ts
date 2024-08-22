@@ -3,6 +3,7 @@ import { inject, Injectable } from '@angular/core';
 import { environment } from '@envs/environment.development';
 import { catchError, firstValueFrom, map } from 'rxjs';
 import { Ingredient, NewIngredient } from '../interfaces/ingredient.interface';
+import { SuccessDeleteIngredientResponse } from 'app/shared/types/server-responses.interface';
 
 @Injectable({
   providedIn: 'root',
@@ -55,6 +56,24 @@ export class FridgeService {
           const status = response.status;
           const body = response.body;
 
+          return { status, body };
+        }),
+        catchError((error) => {
+          throw new Error(error.error.message);
+        })
+      );
+  }
+
+  deleteIngredient(id: number) {
+    return this.httpClient
+      .delete<SuccessDeleteIngredientResponse>(
+        `${environment.API_BASE_URL}/ingredients/${id}`,
+        { observe: 'response' }
+      )
+      .pipe(
+        map((response) => {
+          const status = response.status;
+          const body = response.body;
           return { status, body };
         }),
         catchError((error) => {

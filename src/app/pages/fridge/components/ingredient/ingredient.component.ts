@@ -66,4 +66,18 @@ export class IngredientComponent {
         },
       });
   }
+
+  deleteFood(id: number): void {
+    this.fridgeService.deleteIngredient(id).subscribe({
+      next: ({ status, body }) => {
+        if (status === 200) {
+          this.toastrService.success(body?.message);
+          this.fridgeIngredientService.deleteFridgeIngredient(id);
+        }
+      },
+      error: (err) => {
+        console.log(err);
+      },
+    });
+  }
 }

@@ -35,4 +35,12 @@ export class FridgeIngredientsService {
       )
     );
   }
+
+  deleteFridgeIngredient(ingredientId: number) {
+    this.$fridgeIngredients.update((prevIngredientState) =>
+      prevIngredientState.filter(
+        (ingredientInFridge) => ingredientInFridge.id !== ingredientId
+      )
+    );
+  }
 }
