@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { environment } from '@envs/environment.development';
-import { catchError, firstValueFrom } from 'rxjs';
+import { catchError, firstValueFrom, map } from 'rxjs';
 import { Ingredient, NewIngredient } from '../interfaces/ingredient.interface';
 
 @Injectable({
@@ -42,15 +42,24 @@ export class FridgeService {
 
   modifyIngredient(
     ingredientIdToModify: number,
-    newIngredientData: Partial<Ingredient>
+    newIngredientData: NewIngredient
   ) {
-    // this.fridgeIngredients.update((ingredients) => {
-    //   return ingredients.map((ingredient) => {
-    //     if (ingredient.id === ingredientIdToModify) {
-    //       return { ...ingredient, ...newIngredientData };
-    //     }
-    //     return ingredient;
-    //   });
-    // });
+    return this.httpClient
+      .patch<Ingredient>(
+        `${environment.API_BASE_URL}/ingredients/${ingredientIdToModify}`,
+        newIngredientData,
+        { observe: 'response' }
+      )
+      .pipe(
+        map((response) => {
+          const status = response.status;
+          const body = response.body;
+
+          return { status, body };
+        }),
+        catchError((error) => {
+          throw new Error(error.error.message);
+        })
+      );
   }
 }
