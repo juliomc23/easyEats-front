@@ -25,4 +25,14 @@ export class FridgeIngredientsService {
       ...prevIngredientState,
     ]);
   }
+
+  modifyFridgeIngredient(ingredientUpdated: Ingredient) {
+    this.$fridgeIngredients.update((prevIngredientState) =>
+      prevIngredientState.map((ingredientInFridge) =>
+        ingredientInFridge.id === ingredientUpdated.id
+          ? ingredientUpdated
+          : ingredientInFridge
+      )
+    );
+  }
 }
