@@ -27,7 +27,7 @@
         formControlName="value"
       />
       <select formControlName="unit" class="ingredient__select--qty">
-        <option value="gr">g</option>
+        <option value="g">g</option>
         <option value="ud">ud</option>
         <option value="l">l</option>
       </select>
@@ -42,10 +42,7 @@
       Guardar
       <span class="material-icons-outlined">save</span>
     </button>
-    <button
-      class="actions__button cancel"
-      (click)="cancelEditingFood(ingredient.id)"
-    >
+    <button class="actions__button cancel" (click)="cancelEditingFood()">
       Cancelar
       <span class="material-icons-outlined">cancel</span>
     </button>

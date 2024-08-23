@@ -36,7 +36,7 @@ export class IngredientComponent {
     });
   }
 
-  cancelEditingFood(ingredientId: number) {
+  cancelEditingFood() {
     this.isEditingFood = false;
   }
 
