@@ -1,0 +1,29 @@
+<div class="main__div--generateOptions">
+  <section class="main__section--infoTexts">
+    <h1>Generador de recetas</h1>
+    <p>
+      En esta sección podrás obtener las recetas de
+      <a href="https://knoweats.com/" target="_blank" class="knoweats--link"
+        >knoweats!</a
+      >
+    </p>
+    <p>
+      En esta sección también podrás ver la preparación de la receta que decidas
+      preparar.
+    </p>
+  </section>
+  <section class="div__section--buttonContainer">
+    <button
+      class="knoweats--button"
+      (click)="getKnoweatsRecipes()"
+      [disabled]="userAskForKnoweatsRecipes"
+    >
+      Obtener las recetas de knoweats!
+    </button>
+
+    <small
+      >**Una vez has obtenido las recetas de knoweats, el botón quedará
+      deshabilitado hasta el lunes.**
+    </small>
+  </section>
+</div>

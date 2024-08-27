@@ -1,3 +1,7 @@
 <app-layout>
-  <h1>Generator</h1>
+  <main class="main__recipesGenerator--container">
+    <app-generate-options
+      (wantToGenerateRecipes)="handleWantToGenerateRecipes($event)"
+    />
+  </main>
 </app-layout>

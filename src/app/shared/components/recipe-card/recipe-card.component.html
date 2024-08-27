@@ -1,0 +1,50 @@
+<article
+  class="article__recipe--card"
+  [style.view-transition-name]="'toogle-open_close-recipe'"
+>
+  <section class="recipe__card--header">
+    <h3>{{ recipe.name }}</h3>
+    <button (click)="recipe.favorite = !recipe.favorite">
+      <span
+        class="material-icons-outlined"
+        [ngClass]="{ favorite: recipe.favorite }"
+        >{{ recipe.favorite ? "favorite" : "favorite_border" }}</span
+      >
+    </button>
+  </section>
+  <section class="recipe__card--info">
+    <span class="material-icons-outlined"> schedule </span>
+    <span>{{ recipe.prepare_time }}</span>
+    <span>{{ recipe.prepare_time_unit }}</span>
+  </section>
+  <section
+    [@toggleSection]="openedRecipe ? 'open' : 'closed'"
+    class="recipe__card--ingredients"
+  >
+    <p>Ingredientes:</p>
+    <ul>
+      @for (ingredient of recipe.ingredients; track ingredient.name) {
+      <li>
+        {{ ingredient.value }} {{ ingredient.unit }} {{ ingredient.name }}
+      </li>
+      }
+    </ul>
+  </section>
+  <section
+    [@toggleSection]="openedRecipe ? 'open' : 'closed'"
+    class="recipe__card--steps"
+  >
+    <p>Pasos:</p>
+    <ol>
+      @for (step of recipe.steps; track step) {
+      <li>{{ step }}</li>
+      }
+    </ol>
+  </section>
+  <button (click)="handleToggleRecipe()" class="recipe__card--button">
+    <span class="material-icons-outlined">{{
+      openedRecipe ? "expand_less" : "expand_more"
+    }}</span
+    >{{ openedRecipe ? "Ocultar receta" : "Ver receta" }}
+  </button>
+</article>
